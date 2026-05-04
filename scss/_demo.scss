@@ -1,0 +1,85 @@
+.demo {
+	padding-top: clamp(0rem, -1.5556rem + 7.7778vw, 6.5625rem); /* 105/0>1670-320 */
+	// .demo__container
+	&__container {
+		padding-block: clamp(1.875rem, 0.7639rem + 5.5556vw, 6.5625rem); /* 105/30>1670-320 */
+	}
+
+	// .demo__inner
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		column-gap: toRem(20);
+		row-gap: toRem(30);
+
+		@media (min-width: toEm(1024)) and (max-width: toEm(1439.98)) {
+			display: flex;
+			justify-content: space-between;
+
+			padding: toRem(34) toRem(38);
+		}
+
+		@media (min-width: toEm(1440)) {
+			flex-direction: row;
+			padding: toRem(35) 0 toRem(35) toRem(38);
+
+			border-radius: toRem(1000) 0 0 toRem(1000);
+			border-top: 2px solid var(--Green, #213d34);
+			border-bottom: 2px solid var(--Green, #213d34);
+			border-left: 2px solid var(--Green, #213d34);
+		}
+	}
+
+	// .demo__media
+
+	&__media {
+		padding: toRem(5);
+
+		border: toRem(2) solid var(--green-color);
+		border-radius: toRem(352);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			aspect-ratio: 1045 / 610;
+			border-radius: toRem(352);
+		}
+
+		@media (min-width: toEm(490)) {
+			padding: toRem(17) toRem(21);
+		}
+
+		@media (min-width: toEm(767)) {
+			padding: toRem(34) toRem(42);
+
+			border: toRem(2) solid var(--green-color);
+			border-radius: toRem(352);
+		}
+	}
+
+	// .demo__content
+
+	&__content {
+		@media (min-width: toEm(1440)) {
+			flex-basis: toRem(427);
+		}
+	}
+
+	// .demo__title
+
+	&__title {
+		flex-basis: toRem(427);
+		text-align: center;
+
+		font-size: clamp(1.5625rem, 0.9551rem + 3.037vw, 4.125rem); /* 66/25>1670-320 */
+		// @include adaptiveValue("font-size", 66, 25);
+
+		@media (min-width: toEm(1440)) {
+			text-align: right;
+		}
+	}
+}

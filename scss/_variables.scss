@@ -1,0 +1,15 @@
+:root {
+	--white-color: #fff;
+	--green-color: #213d34;
+	--lightGreen-color: #d9ef78;
+	--lightGray-color: #f1f2ed;
+	--baige-color: #f1f2ed;
+
+	--hover-green-color: #257159;
+
+	--btn-bg-color: #213d34;
+
+	@media (min-width: 768px) {
+		--header-height: 100px;
+	}
+}

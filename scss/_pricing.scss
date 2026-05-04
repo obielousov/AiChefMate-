@@ -1,0 +1,228 @@
+.pricing {
+	padding-bottom: clamp(0rem, -1.5556rem + 7.7778vw, 6.5625rem); /* 105/0>1670-320 */
+
+	// .pricing__container
+	&__container {
+		padding-block: clamp(1.875rem, 0.7639rem + 5.5556vw, 6.5625rem); /* 105/30>1670-320 */
+	}
+
+	// .pricing__content
+	&__content {
+		padding-inline: 8%;
+		position: relative;
+		z-index: 3;
+	}
+
+	// .pricing__items
+	&__items {
+		position: relative;
+		z-index: 3;
+
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		@media (max-width: toEm(992.98)) {
+			gap: toRem(10);
+		}
+	}
+
+	// .pricing__bg
+
+	&__bg {
+		position: absolute;
+		top: toRem(50);
+		bottom: toRem(50);
+		z-index: 1;
+
+		overflow: hidden;
+
+		// .pricing__bg--left
+		&--left {
+			left: 0;
+			border-radius: toRem(43) 0 0 toRem(43);
+		}
+
+		// .pricing__bg--right
+		&--right {
+			right: 0;
+			border-radius: 0 toRem(43) toRem(43) 0;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			// aspect-ratio: 520 / 667;
+			object-fit: cover;
+		}
+	}
+
+	// .pricing__item
+	&__item {
+	}
+}
+
+.item-pricing {
+	display: flex;
+	flex-direction: column;
+
+	flex: 1 1 toRem(350);
+	padding: toRem(15);
+
+	background-color: var(--white-color);
+
+	border: toRem(1) solid var(--green-color);
+	border-radius: toRem(43);
+
+	transform: translate(0px, 30%);
+	opacity: 0;
+
+	transition:
+		transform 0.3s,
+		opacity 0.3s;
+
+	@media (min-width: toEm(1200)) {
+		padding: toRem(70) toRem(50);
+
+		border: toRem(1) solid var(--green-color);
+		border-radius: toRem(43);
+	}
+
+	&.--active {
+		background-color: var(--lightGreen-color);
+
+		@media (min-width: toEm(1024)) {
+			background-color: var(--lightGreen-color);
+
+			border: toRem(1) solid var(--green-color);
+			border-radius: toRem(43);
+
+			.item-pricing__cta-btn {
+				background-color: var(--green-color);
+				color: #fff;
+			}
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--lightGreen-color);
+		}
+	}
+
+	// .item-pricing__title
+
+	&__title {
+		font-family: "syne";
+		font-size: clamp(1.5625rem, 1.3403rem + 1.1111vw, 2.5rem); /* 40/25>1670-320 */
+		text-align: center;
+		margin-bottom: toRem(12);
+
+		@media (min-width: toEm(1200)) {
+			margin-bottom: toRem(24);
+		}
+	}
+
+	// .item-pricing__value
+	&__value {
+		margin-bottom: toRem(5);
+
+		text-align: center;
+		font-weight: 600;
+
+		@include adaptiveValue("font-size", 45, 22);
+	}
+
+	// .item-pricing__subtitle
+
+	&__subtitle {
+		text-align: center;
+
+		@include adaptiveValue("font-size", 22, 18);
+		@include adaptiveValue("margin-bottom", 50, 25);
+	}
+
+	// .item-pricing__list
+	&__list {
+		text-align: center;
+
+		@include adaptiveValue("margin-bottom", 60, 30);
+
+		@media (min-width: toEm(1200)) {
+			text-align: start;
+		}
+	}
+	// .item-pricing__list-item
+	&__list-item {
+		font-size: toRem(16);
+
+		&:not(:last-child) {
+			margin-bottom: toRem(12);
+			@include adaptiveValue("margin-bottom", 24, 12);
+		}
+
+		@include adaptiveValue("font-size", 22, 16);
+
+		@media (min-width: toEm(1200)) {
+			list-style: disc;
+		}
+	}
+	// .item-pricing__label
+	&__label {
+		padding-top: toRem(24);
+		margin-bottom: toRem(25);
+		font-size: toRem(16);
+
+		border-top: 2px solid var(--green-color);
+
+		@media (min-width: toEm(1200)) {
+			padding-top: toRem(55);
+			margin-bottom: toRem(152);
+			font-size: toRem(22);
+		}
+	}
+	// .item-pricing__cta-btn
+	&__cta-btn {
+		display: inline-block;
+		width: 100%;
+
+		margin-top: auto;
+		padding: toRem(14) toRem(20);
+
+		font-size: toRem(16);
+
+		border: toRem(1) solid var(--green-color);
+		border-radius: toRem(50);
+
+		transition:
+			color 0.3s,
+			background-color 0.3s;
+
+		@media (min-width: toEm(1200)) {
+			padding: toRem(18) toRem(40);
+
+			border: toRem(1) solid var(--green-color);
+			font-size: toRem(22);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--btn-bg-color);
+				color: var(--white-color);
+			}
+		}
+	}
+
+	.--animate & {
+		transform: translate(0px, 0px);
+		opacity: 1;
+
+		@for $i from 1 through 8 {
+			$delay: $i * 0.1;
+
+			&:nth-child(#{$i}) {
+				transition-delay: #{$delay}s;
+			}
+		}
+	}
+}

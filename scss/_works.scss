@@ -1,0 +1,270 @@
+.works {
+	min-width: 0;
+
+	&__container {
+		min-width: 0;
+	}
+
+	&__content {
+		min-width: 0;
+	}
+
+	&__slider {
+		min-width: 0;
+	}
+}
+
+.how-it-works {
+	position: relative;
+	padding-top: toRem(40);
+
+	background-color: var(--baige-color);
+
+	@media (min-width: toEm(767)) {
+		padding-block-start: toRem(100);
+		margin-bottom: toRem(100);
+	}
+
+	&::after {
+		@media (min-width: toEm(767)) {
+			content: "";
+			position: absolute;
+			bottom: -80px;
+			left: 0;
+
+			width: 687px;
+			height: 203px;
+			background-color: var(--baige-color);
+
+			border-radius: toRem(968) 0 0 toRem(968);
+
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.slider-works {
+	display: flex;
+	align-items: center;
+	column-gap: toRem(40);
+	min-width: 0;
+
+	padding-bottom: toRem(40);
+
+	@media (max-width: toEm(767.98)) {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		flex: 1 1 auto;
+		min-width: 0;
+		inline-size: 100%;
+
+		@media (max-width: toEm(767.98)) {
+			order: 2;
+			align-self: stretch;
+		}
+	}
+
+	&__items {
+	}
+
+	&__item {
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+
+		&.swiper-slide-active {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+
+	&__number {
+		font-family: "syne";
+		font-size: clamp(2.25rem, 1.8796rem + 1.8519vw, 3.8125rem);
+	}
+
+	&__title {
+		font-size: clamp(1.75rem, 1.5722rem + 0.8889vw, 2.5rem);
+		line-height: 1.2;
+		font-weight: 500;
+
+		&:not(:last-child) {
+			margin-bottom: toRem(40);
+		}
+
+		@media (max-width: toEm(660.98)) {
+			&:not(:last-child) {
+				margin-bottom: toRem(20);
+			}
+		}
+	}
+
+	&__text {
+		max-width: toRem(520);
+		// min-height: toRem(150);
+
+		font-size: clamp(1.125rem, 1.0657rem + 0.2963vw, 1.375rem);
+		line-height: 1.35;
+
+		&:not(:last-child) {
+			margin-bottom: clamp(1.875rem, 0.9861rem + 4.4444vw, 5.625rem);
+		}
+
+		@media (max-width: toEm(767.98)) {
+			max-width: none;
+			min-height: auto;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: toRem(12);
+
+		&:not(:first-child) {
+			margin-top: 6%;
+		}
+
+		@media (min-width: toEm(768)) {
+			&:not(:last-child) {
+				margin-bottom: 14.8456%;
+			}
+
+			&:not(:first-child) {
+				margin-top: 6%;
+			}
+		}
+
+		@media (max-width: toEm(767.98)) {
+			justify-content: space-between;
+			padding-inline: 12%;
+		}
+	}
+
+	&__button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		padding: toRem(18) toRem(40);
+
+		border: toRem(1) solid var(--green-color);
+		border-radius: toRem(50);
+
+		transition: background-color 0.3s;
+
+		&:not(.swiper-button-disabled) {
+			background-color: var(--lightGreen-color);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #c7eb26;
+			}
+		}
+
+		@media (max-width: toEm(767.98)) {
+			width: 30%;
+		}
+	}
+
+	.slider-works__arrow {
+		&--left {
+			transform: rotate(-90deg);
+		}
+
+		&--right {
+			transform: rotate(90deg);
+		}
+	}
+
+	&__counter {
+		display: none;
+
+		@media (min-width: toEm(767)) {
+			display: block;
+			font-family: "syne";
+			font-size: toRem(40);
+			font-weight: 500;
+		}
+	}
+
+	&__swiper {
+		flex: 0 0 46.1736%;
+		min-width: 0;
+
+		@media (max-width: toEm(767.98)) {
+			order: 1;
+			flex: 0 1 auto;
+			inline-size: 100%;
+		}
+
+		&.swiper {
+			padding-bottom: 2%;
+			padding-left: 4%;
+			padding-right: 10%;
+
+			@media (max-width: toEm(767.98)) {
+				padding-inline: 14%;
+				padding-bottom: toRem(20);
+			}
+
+			@media (max-width: toEm(660.98)) {
+				padding-bottom: 5%;
+			}
+		}
+	}
+
+	&__cards {
+	}
+
+	&__card {
+		position: relative;
+		inline-size: toRem(567);
+		flex-shrink: 0;
+		padding: 0;
+
+		overflow: hidden;
+
+		@media (max-width: toEm(767.98)) {
+			inline-size: min(100%, toRem(567));
+			margin-inline: auto;
+			border-radius: toRem(30);
+		}
+
+		@media (max-width: toEm(479.98)) {
+			border-radius: toRem(22);
+		}
+
+		img {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+
+			aspect-ratio: 567 / 681;
+			object-fit: cover;
+			border-radius: 12% 12% 12% 12% / 9% 9% 9% 9%;
+
+			@media (max-width: toEm(920)) and (min-width: toEm(768)) {
+				aspect-ratio: 567 / 900;
+			}
+		}
+	}
+
+	&__pagination {
+		display: none;
+
+		@media (min-width: toEm(767)) {
+			display: block;
+			font-family: "syne";
+			font-size: toRem(40);
+			font-weight: 500;
+		}
+	}
+}

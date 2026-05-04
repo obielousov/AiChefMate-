@@ -1,0 +1,155 @@
+.faq {
+	padding-block: clamp(1.875rem, 0.7639rem + 5.5556vw, 6.5625rem); /* 105/30>1670-320 */
+	// .faq__container
+
+	&__container {
+	}
+
+	// .faq__body
+
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(toRem(600), 100%), 1fr));
+		gap: toRem(4);
+	}
+
+	&.--animate {
+	}
+
+	// .faq__item
+
+	&__item {
+	}
+	// .faq__column
+
+	&__column {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(4);
+	}
+}
+
+.item-faq {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto auto;
+
+	column-gap: toRem(20);
+
+	padding: toRem(25);
+
+	transition:
+		background-color 0.3s ease-in-out,
+		border-radius 0.3s ease-in-out,
+		opacity 0.5s,
+		transform 0.2s,
+		border-radius 0.3s,
+		height 0.3s;
+
+	transform: translate(0px, 30%);
+	opacity: 0;
+
+	@media (max-width: toEm(767.98)) {
+		padding: toRem(10);
+	}
+
+	&.--active {
+		background-color: var(--baige-color);
+		border-radius: toRem(24);
+
+		.item-faq__title {
+			&::before {
+				background-color: var(--lightGreen-color);
+				transform: rotate(-180deg);
+
+				border-radius: toRem(50);
+				height: toRem(57);
+
+				@media (min-width: toEm(767)) {
+					height: toRem(77);
+				}
+			}
+		}
+
+		.item-faq__title-text {
+			align-self: start;
+
+			transform: translateY(toRem(-8));
+
+			transition: transform 0.3s ease-in-out;
+		}
+	}
+
+	&__title {
+		display: contents;
+
+		list-style: none;
+		cursor: pointer;
+
+		&::marker {
+			display: none;
+		}
+
+		&::before {
+			content: "";
+
+			grid-column: 1;
+			grid-row: 1 / 3;
+
+			width: toRem(64);
+			height: toRem(64);
+
+			background: url(../img/arrow.svg) center no-repeat;
+			border: toRem(2) solid var(--green-color);
+			border-radius: 50%;
+
+			transition:
+				transform 0.5s ease-in-out,
+				background-color 0.3s ease-in-out;
+
+			@media (max-width: toEm(992)) {
+				width: toRem(34);
+				height: toRem(34);
+			}
+		}
+	}
+
+	&__title-text {
+		grid-column: 2;
+		grid-row: 1;
+
+		font-size: clamp(1rem, 0.9111rem + 0.4444vw, 1.375rem);
+		color: var(--green-color);
+		font-weight: 600;
+
+		transform: translateY(0);
+
+		transition: transform 0.3s ease;
+
+		@media (min-width: toEm(767)) {
+			margin-top: toRem(10);
+		}
+
+		@media (min-width: toEm(1270)) {
+			margin-top: toRem(15);
+		}
+	}
+
+	&__content {
+		grid-column: 2;
+		grid-row: 2;
+
+		font-size: clamp(0.875rem, 0.8157rem + 0.2963vw, 1.125rem);
+	}
+
+	.--animate & {
+		transform: translate(0px, 0px);
+		opacity: 1;
+		@for $i from 1 through 8 {
+			$delay: $i * 0.1;
+			&:nth-child(#{$i}) {
+				transition-delay: #{$delay}s;
+			}
+		}
+	}
+}
