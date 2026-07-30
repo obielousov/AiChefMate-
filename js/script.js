@@ -112,14 +112,6 @@ function initActiveCards(parentSelector, cardSelector, activeClass) {
 	})
 }
 
-function faqBuild() {
-	const faqItems = document.querySelectorAll(".item-faq")
-	if (faqItems.length) {
-		const faqBody = document.querySelector(".faq__body")
-		let faqTemplate = faqItems.forEach((faqItems, index) => {})
-	}
-}
-
 let _slideUp = (target, duration = 500, showmore = 0) => {
 	if (!target.classList.contains("_slide")) {
 		target.classList.add("_slide")

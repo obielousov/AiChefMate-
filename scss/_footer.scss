@@ -208,9 +208,9 @@
 	// .footer__icon
 
 	&__icon {
-		transition:
-			transform 0.3s,
-			img {
+		transition: transform 0.3s;
+
+		img {
 			aspect-ratio: 1 / 1;
 			object-fit: cover;
 		}
